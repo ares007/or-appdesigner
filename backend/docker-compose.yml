@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+
+  db:
+    image: mysql:5.6
+    restart: always
+    volumes:
+      - ./mysql:/var/lib/mysql # this creates a folder called mysql in the folder where you placed this compose file. so don't use these in temporary folders
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      
+  backend:
+    image: xfirenl/backend
+    restart: always
+    ports:
+      - 8000:8000/tcp
+    environment:
+      - HTTP_PORT=8000
+      - DB_DRIVER="jdbc:mysql"
+      - DB_HOST="db"
+      - DB_DATABASE="mydb"
+      - DB_USERNAME="root"
+      - DB_PASSWORD="example" #this is the password set in de database env setting   

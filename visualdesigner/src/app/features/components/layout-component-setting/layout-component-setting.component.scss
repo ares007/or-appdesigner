@@ -1,0 +1,37 @@
+.card_setting {
+    // max-width: 340px;
+    width: 100%;
+}
+.label_card {
+    // width: 340px;
+}
+.form {
+    margin-top: 10px;
+    width: 340px;
+}
+.label_card_text {
+    width: 300px;
+}
+
+.delete{
+    position:fixed;
+    bottom: 0;
+    margin-bottom: 30px;
+}
+
+.delete a {
+    color: red;
+    font-size: 18px;
+}
+
+.form{
+    width: 100%;
+
+    .label_card_text{
+        width: 100%;
+    }
+}
+
+::ng-deep .mat-chip-list-wrapper {
+  margin: 0 !important;
+}
